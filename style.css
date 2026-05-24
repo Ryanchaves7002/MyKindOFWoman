@@ -1,0 +1,190 @@
+:root {
+    --pink-soft: #ffc0cb;
+    --pink-hot: #d3066d;
+    --bg-love: #ffffff;
+    --text-dark: #4a4a4a;
+    --background_lover: black;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-love);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+.coração {
+    fill: var(--pink-hot);
+    animation: pulse 1.5s infinite;
+    margin-left: 120px;
+}
+
+.dancing-font {
+     font-family: 'Dancing Script', cursive; 
+     font-size: 3rem; 
+     text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.5);
+     color: var(--pink-hot); }
+
+/* Overlay de Entrada */
+#entrance-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--background_lover  );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: 1s ease-in-out;
+}
+
+#start-btn {
+    padding: 14px 28px;
+    border: none;
+    background: var(--pink-hot);
+    color: white;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    transition: 0.3s;
+}
+
+#start-btn:hover { transform: scale(1.1); }
+.slideshow {
+  position: relative;
+  width: 300px;
+  height: 500px; /* Ajuste a altura conforme necessário */
+  overflow: hidden;
+}
+
+.slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+/* Conteúdo */
+.hidden { opacity: 0; pointer-events: none; }
+#main-content { transition: 2s; padding: 20px; }
+
+.hero { 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.floating-photo img {
+    width: 250px; height: 250px; 
+    border-radius: 50%;
+    border: 8px solid white; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-top: 20px; animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px; border-radius: 20px;
+    max-width: 600px; margin: 50px auto;
+    text-align: center;
+     font-size: 1.3rem; 
+     font-style: italic;
+}
+
+/* Timeline */
+.timeline {
+     position: relative; 
+     max-width: 800px; 
+     margin: 50px auto; 
+     padding: 20px 0;
+    }
+
+.timeline::after {
+    content: ''; 
+    position: absolute; 
+    width: 4px; 
+    background: var(--pink-soft);
+    top: 0;
+     bottom: 0; left: 50%; margin-left: -2px;
+}
+
+.timeline-item { 
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.timeline-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.timeline-item:nth-child(odd) { 
+    left: 0;
+}
+.timeline-item:nth-child(odd)::before,
+.timeline-item.left::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--pink-hot);
+    border-radius: 50%;
+    top: 15px;
+    right: -10px;
+    box-shadow: 0 0 0 4px var(--pink-soft);
+}
+.timeline-item.right::before {
+    left: -10px;
+    right: auto;
+}
+.timeline-text { 
+    background: white; padding: 15px; border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: var(--text-dark);
+}   
+.left { left: 0; }
+.right { left: 50%; }
+
+.timeline-img img { 
+    width: 100%; 
+    border-radius: 15px; 
+    margin-bottom: 10px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Reveal Animations */
+.reveal { 
+    transform: translateY(0); }
+
+/* Corações flutuantes */
+.heart {
+    position: fixed; color: var(--pink-hot);
+    font-size: 20px; pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); opacity: 0; }
+}
