@@ -15,6 +15,8 @@
 html{
     font-size:16px;
     scroll-behavior:smooth;
+    overflow-x:hidden;
+    width:100%;
 }
 
 body{
@@ -23,6 +25,25 @@ body{
     color:var(--text-dark);
     overflow-x:hidden;
     width:100%;
+}
+img{
+    max-width:100%;
+    height:auto;
+}
+audio{
+    max-width:100%;
+}
+
+section{
+    width:100%;
+}
+
+h1,h2,h3,h4,p{
+    overflow-wrap:break-word;
+}
+p{
+    text-align:justify;
+    
 }
 
 /* ===== FONTES ===== */
@@ -67,7 +88,11 @@ body{
     z-index:9999;
     transition:1s ease-in-out;
 }
-
+.entrance-content{
+    width:min(95%,500px);
+    padding:20px;
+    text-align:center;
+}
 .song{
     width:min(90%,500px);
     margin:20px auto;
@@ -96,11 +121,11 @@ body{
     transform:scale(1.05);
 }
 
-/* ===== SLIDESHOW ===== */
 
 .slideshow{
     position:relative;
     width:min(90vw,350px);
+    max-width: 100%;
     aspect-ratio:3/5;
     margin:auto;
     overflow:hidden;
@@ -136,6 +161,8 @@ body{
 .hero{
     min-height:100vh;
     min-height:100dvh;
+    width: 100%;
+    gap:20px;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -273,45 +300,127 @@ body{
     }
 }
 
-/* ===== TABLET ===== */
+/* ===== TABLETS NORMAIS E E PEQUENOS ===== */
 
-@media (max-width:768px){
+/* ===== TELAS MUITO PEQUENAS ===== */
 
-    .timeline::after{
-        left:20px;
-        transform:none;
+@media (max-width:360px){
+
+    html{
+        font-size:13px;
     }
 
-    .timeline-item{
+    
+
+    .glass-card{
+        padding:15px;
+    }
+
+    #start-btn{
         width:100%;
-        padding-left:60px;
-        padding-right:15px;
-        left:0 !important;
-    }
-
-    .timeline-item::before{
-        left:10px !important;
-        right:auto !important;
+        max-width:280px;
     }
 }
 
-/* ===== CELULARES ===== */
+/* ===== IPHONE XR / A51 / REDMI ===== */
 
-@media (max-width:480px){
+@media (max-width:430px){
 
     html{
         font-size:14px;
+    }
+
+    .hero{
+        padding:15px;
+    }
+    h3{
+        font-size:clamp(1.2rem,5vw,1.8rem);
+        
+    }
+    h4{
+        font-size:clamp(1rem,4vw,1.5rem);
+    }
+    .data{
+        font-size:clamp(0.8rem,3vw,1.2rem);
     }
 
     .glass-card{
         width:100%;
     }
 
-    .hero{
-        padding:15px;
+    .timeline{
+        padding:10px;
+    }
+
+    .dancing-font{
+        font-size:clamp(3rem,8vw,2.8rem);
+    }
+
+    .dancing-font-2{
+        font-size:clamp(1.8rem,7vw,2.4rem);
+    }
+
+    p{
+        font-size:0.95rem;
+        text-align:justify;
+    }
+}
+
+/* ===== CELULARES GRANDES ===== */
+
+@media (max-width:650px){
+
+    .timeline-item{
+        width:47%;
+        padding:10px;
+    }
+
+    .right{
+        left:53%;
+    }
+
+    
+}
+
+/* ===== TABLETS ===== */
+
+@media (max-width:900px){
+
+    .timeline{
+        max-width:700px;
+    }
+
+    .timeline-item{
+        width:48%;
+        padding:12px;
+    }
+
+    .right{
+        left:52%;
+    }
+
+    .timeline-text{
+        font-size:.95rem;
+    }
+}
+
+/* ===== DESKTOPS GRANDES ===== */
+
+@media (min-width:1600px){
+
+    html{
+        font-size:18px;
     }
 
     .timeline{
-        padding:10px;
+        max-width:1200px;
+    }
+
+    .glass-card{
+        max-width:900px;
+    }
+
+    .slideshow{
+        width:420px;
     }
 }
